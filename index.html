@@ -1,18 +1,27 @@
 <html>
     <head>
         <script type="text/javascript">
-	function show_image(src, width, height, alt) {
-    	var img = document.createElement("img");
-    	img.src = src;
-    	img.width = width;
-    	img.height = height;
-
-    	// This next line will just add it to the <body> tag
-    	document.body.appendChild(img);
-	}	
+	function readTextFile(file)
+	function readTextFile(file)
+	{
+    		var rawFile = new XMLHttpRequest();
+    		rawFile.open("GET", file, false);
+    		rawFile.onreadystatechange = function ()
+    		{
+        		if(rawFile.readyState === 4)
+        		{
+            			if(rawFile.status === 200 || rawFile.status == 0)
+            			{
+                			var allText = rawFile.responseText;
+                			alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
 	</script>
     	</head>
     	<body>
-        	<button onclick="show_image('https://s3-us-west-1.amazonaws.com/watson-public-bucket/By+Ducky2.bmp', 276, 110)">Add</button>
+        	<button onclick="readTextFile("file://TestFile.txt")>Add</button>
     </body>
 </html>
