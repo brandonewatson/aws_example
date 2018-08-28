@@ -16,3 +16,5 @@ function Start () {
         print(e.Message);
     }
 }
+
+readTextFile("file://TestFile.txt");

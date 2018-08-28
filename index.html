@@ -2,26 +2,26 @@
     <head>
         <script type="text/javascript">
 	function readTextFile(file)
-	function readTextFile(file)
 	{
     		var rawFile = new XMLHttpRequest();
-    		rawFile.open("GET", file, false);
+    		rawFile.open("GET", file, true);
     		rawFile.onreadystatechange = function ()
     		{
         		if(rawFile.readyState === 4)
         		{
-            			if(rawFile.status === 200 || rawFile.status == 0)
+            			if(rawFile.status === 200)
             			{
                 			var allText = rawFile.responseText;
                 			alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-}
+            			}
+        		}
+    		}
+
+    		rawFile.send(null);
+	}
+	readTextFile("TestFile.txt");
 	</script>
     	</head>
     	<body>
-        	<button onclick="readTextFile("file://TestFile.txt")>Add</button>
     </body>
 </html>
